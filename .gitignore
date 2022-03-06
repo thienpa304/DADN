@@ -1,6 +1,9 @@
-# compiled output
-/dist
-/node_modules
+node_modules
+dist
+.idea
+env-config.yml
+yarn-error.log
+lerna-debug.log
 /yarn.lock
 /package-lock.json
 # Logs
