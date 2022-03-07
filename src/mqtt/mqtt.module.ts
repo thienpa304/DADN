@@ -1,8 +1,9 @@
- import { MongoService } from './mqtt.service';
+import { mqttService } from './mqtt.service';
 import { Module } from '@nestjs/common';
 
 @Module({
   imports: [],
-  providers: [MongoService],
+  providers: [mqttService],
+  exports: [mqttService]
 })
 export class MQTTModule {}

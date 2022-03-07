@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import * as mqtt from 'mqtt';
 
 @Injectable()
-export class MongoService {
+export class mqttService {
   private Client;
   private url: string;
   private port: number;
@@ -28,9 +28,10 @@ export class MongoService {
   }
 
   publish(key: string, data: any) {
-    this.Client.subscribe(key, (err) => {
+    const client = this.Client
+    client.subscribe(key, (err) => {
       if (!err) {
-        this.Client.publish(key, data);
+        client.publish(key, data);
       }
     });
   }
