@@ -25,10 +25,15 @@ export class mqttService {
       username: this.username,
       password: this.password,
     });
+    console.log('mqtt in process...')
+    this.Client.on('error', (error) => {
+      console.log('MQTT Client Errored');
+      console.log(error);
+    });
   }
 
   publish(key: string, data: any) {
-    const client = this.Client
+    const client = this.Client;
     client.subscribe(key, (err) => {
       if (!err) {
         client.publish(key, data);
@@ -37,9 +42,14 @@ export class mqttService {
   }
 
   consumer(key: string, callback: (key: string, message: object) => void) {
-    this.Client.on('message', (topicKey, message) => {
-      if (topicKey == key) {
-        callback(topicKey, message);
+    const client = this.Client;
+    client.subscribe(key, (err) => {
+      if (!err) {
+        this.Client.on('message', (topicKey, message) => { 
+          if (topicKey == key) {
+            callback(topicKey, message);
+          }
+        });
       }
     });
   }

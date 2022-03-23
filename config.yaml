@@ -1,7 +1,14 @@
+http:
+  host: 'localhost'
+  port: 2001 
+
 mongo:
-  url: mongodb://localhost:27017
+  url: mongodb://localhost:27017/smart_house
+
 mqtt: 
   url: mqtts://io.adafruit.com
   port: 8883
-  username: helloThien
-  password: aio_wAXQ59WlgfoFmorcE2tWkToXxBfy
+  username: hoductri
+  password: aio_ZhpF70RDQSfcNlPKTdP5jT70ejjp
+  keyMesure: 
+    temprature: hoductri/feeds/bbc-temp

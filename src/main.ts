@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './AppModule';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { ConfigService } from '@nestjs/config'
 
 declare const module: any;
 
@@ -19,6 +20,8 @@ async function bootstrap() {
     module.hot.accept();
     module.hot.dispose(() => app.close());
   }
-  await app.listen(3000);
+  const configService = app.get(ConfigService)
+  const port = configService.get('http.port')
+  await app.listen(port);
 }
 bootstrap();

@@ -8,6 +8,8 @@ export class MongoService {
     this.init();
   }
   init() {
-    mongoose.connect(this.configService.get<string>('mongo.url'));
+    mongoose.connect(this.configService.get<string>('mongo.url'))
+    .then(() => {console.log('Mongo connect successfull')})
+    .catch(error => console.log(error));
   }
 }
