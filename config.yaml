@@ -9,6 +9,8 @@ mqtt:
   url: mqtts://io.adafruit.com
   port: 8883
   username: hoductri
-  password: aio_ZhpF70RDQSfcNlPKTdP5jT70ejjp
+  password: aio_EUQX952NvvPAbPKxVayxoNh6TSDY
   keyMesure: 
     temprature: hoductri/feeds/bbc-temp
+    moisture: hoductri/feeds/bbc-moisture
+    gas: 	hoductri/feeds/bbc-gas

@@ -7,7 +7,11 @@ export class SearchDto {
     default: '5',
   })
   filter: string;
-
+  @IsString()
+  @ApiProperty({
+    default: 'hoductri/feeds/bbc-temp',
+  })
+  keyId: string;
   @ApiProperty({
     default: 'updated_at',
   })
@@ -22,7 +26,7 @@ export class SearchDto {
   offset: number;
 
   @ApiProperty({
-    default: 12,
+    default: 20,
   })
   @IsString()
   limit: number; 

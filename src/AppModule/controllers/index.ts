@@ -1,3 +1,3 @@
 import { MesureController } from './mesures.controller';
-
-export const AppController = [MesureController];
+import { AuthController } from './auth.controller';
+export const AppController = [MesureController, AuthController];

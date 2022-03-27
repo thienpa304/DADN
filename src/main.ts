@@ -1,7 +1,7 @@
-import { NestFactory } from '@nestjs/core';
+import { NestFactory } from '@nestjs/core'; 
 import { AppModule } from './AppModule';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import { ConfigService } from '@nestjs/config'
+import { ConfigService } from '@nestjs/config';
 
 declare const module: any;
 
@@ -20,8 +20,10 @@ async function bootstrap() {
     module.hot.accept();
     module.hot.dispose(() => app.close());
   }
-  const configService = app.get(ConfigService)
-  const port = configService.get('http.port')
+  const configService = app.get(ConfigService);
+  const port = configService.get('http.port'); 
+
+  app.enableCors();
   await app.listen(port);
 }
 bootstrap();

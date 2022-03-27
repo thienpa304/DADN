@@ -5,8 +5,9 @@ import { AppService } from './services'
 import { CommonModule } from '../common';
 import { MQTTModule } from '../mqtt';
 import { AppRepository } from './repositories';
+import { AuthModule } from './auth';
 @Module({
-  imports: [CommonModule, MongoModule, MQTTModule],
+  imports: [CommonModule, MongoModule, MQTTModule, AuthModule],
   controllers: [...AppController],
   providers: [...AppService, ...AppRepository],
 })
