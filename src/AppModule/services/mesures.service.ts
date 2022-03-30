@@ -1,12 +1,10 @@
-import { QueryOptions } from 'mongoose';
-import { Injectable } from '@nestjs/common';
+ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { mqttService } from '../../mqtt';
 import { MesureRepository } from '../repositories';
-import { Mesure } from '../schemas';
-import { match } from 'assert';
-import { pipe } from 'rxjs'
+import { Mesure } from '../schemas'; 
 
+import { convertToFeedKey } from '../utils';
 @Injectable()
 export class MesureService {
   constructor(
@@ -26,8 +24,8 @@ export class MesureService {
   public async getByKey(options) {
     const timeRange = Number(options.filter);
     const limit = Number(options.limit);
-    const sort = {} 
-    sort[`${options.sort.trim()}`] = 1
+    const sort = {};
+    sort[`${options.sort.trim()}`] = 1;
     const pipellines = [
       {
         $match: {
@@ -60,10 +58,10 @@ export class MesureService {
       { $sort: sort },
       { $limit: limit },
       { $skip: options.offset * limit },
-    ]; 
+    ];
     // options.filters = { keyId: key };
-    // options.selectedFields = ['value', 'updated_at'];  
-    return await this.mesureRepository.aggregate(pipellines); 
+    // options.selectedFields = ['value', 'updated_at'];
+    return await this.mesureRepository.aggregate(pipellines);
   }
 
   public async create(data: Mesure) {
@@ -71,10 +69,12 @@ export class MesureService {
   }
 
   public async consumeMesures() {
-    const keys = this.configService.get('mqtt.keyMesure');
-    Object.keys(keys).forEach((type) => {
-      this.mqttService.consumer(keys[type], (key, message) => {
-        const currDate = new Date(); 
+    const username = this.configService.get('mqtt.username');
+    const keys = this.configService.get('mqtt.key');
+    const feedKeys = convertToFeedKey(keys, username);
+    Object.keys(feedKeys).forEach((type) => {
+      this.mqttService.consumer(feedKeys[type], (key, message) => {
+        const currDate = new Date();
         const result = new Mesure({
           keyId: key,
           type: type,

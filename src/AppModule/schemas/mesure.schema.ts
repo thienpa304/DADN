@@ -1,9 +1,9 @@
 import { model, Schema } from 'mongoose';
 
 export class Mesure {
-  keyId: String;
-  type: String;
-  value: Number;
+  keyId: string;
+  type: string;
+  value: number;
   updated_at: Date;
 
   constructor(init?: Partial<Mesure>) {

@@ -39,6 +39,7 @@
     "js-yaml": "^4.1.0",
     "mongoose": "^6.2.4",
     "mqtt": "^4.3.6",
+    "node-schedule": "^2.1.0",
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",

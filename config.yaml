@@ -1,16 +1,20 @@
 http:
   host: 'localhost'
-  port: 2001 
+  port: 2001
 
 mongo:
   url: mongodb://localhost:27017/smart_house
 
-mqtt: 
+mqtt:
   url: mqtts://io.adafruit.com
   port: 8883
   username: hoductri
-  password: aio_EUQX952NvvPAbPKxVayxoNh6TSDY
-  keyMesure: 
-    temprature: hoductri/feeds/bbc-temp
-    moisture: hoductri/feeds/bbc-moisture
-    gas: 	hoductri/feeds/bbc-gas
+  password: aio_xRqU98GzplvtCz1BO8gBrNpl9axX
+  key:
+    temprature: bbc-temp
+    moisture: bbc-moisture
+    gas: bbc-gas
+    firstLed: bbc-led
+    secondLed: bbc-led2
+    door: bbc-door
+    pump: bbc-pump
