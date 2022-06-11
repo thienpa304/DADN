@@ -9,12 +9,13 @@ mqtt:
   url: mqtts://io.adafruit.com
   port: 8883
   username: hoductri
-  password: aio_xRqU98GzplvtCz1BO8gBrNpl9axX
+  password: aio_gvwK58mmBdvEAdI7HMqu5zZhzSlv
   key:
     temprature: bbc-temp
     moisture: bbc-moisture
     gas: bbc-gas
     firstLed: bbc-led
-    secondLed: bbc-led2
+    buzzer: bbc-buzzer
     door: bbc-door
     pump: bbc-pump
+    humidity: bbc-humi

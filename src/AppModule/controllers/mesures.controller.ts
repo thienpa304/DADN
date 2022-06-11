@@ -7,12 +7,12 @@ import { JwtAuthGuard } from '../auth';
 export class MesureController {
   constructor(private mesureService: MesureService) {}
 
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Get()
   public async getAll() {
     return this.mesureService.getAll();
   }
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Get('key')
   public async getByKey(@Query() options: SearchDto) {
     return this.mesureService.getByKey(options);

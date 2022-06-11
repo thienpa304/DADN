@@ -25,7 +25,7 @@ export class MesureService {
     const timeRange = Number(options.filter);
     const limit = Number(options.limit);
     const sort = {};
-    sort[`${options.sort.trim()}`] = 1;
+    sort[`${options.sort.trim()}`] = -1;
     const pipellines = [
       {
         $match: {

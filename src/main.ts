@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './AppModule';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { ConfigService } from '@nestjs/config';
-
+import { MssqlModule } from './mssql'
 declare const module: any;
 
 async function bootstrap() {

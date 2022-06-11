@@ -28,7 +28,8 @@ export class ScheduleService {
     const publishMqtt = this.mqttService;
     scheduleServer.scheduleJob(_id.toString(), rules, function () {
       console.log(`Publish ${Number(status)} to ${key_id}`);
-      publishMqtt.publish(key_id, Number(status).toString());
+      publishMqtt.publish(key_id, 
+        Math.abs(Number(status)-1).toString());
     });
   }
   public async cancelSchedule(id: string) {
