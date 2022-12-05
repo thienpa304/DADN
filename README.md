@@ -29,3 +29,7 @@ A smart home is a house that is integrated with advanced technologies to help ow
 
 - Schedule:
 <img src="https://github.com/HelloThien/SmartHouse/blob/main/public/static/schedule_device.png"/>
+
+
+## Demo
+[![Watch the video](https://github.com/HelloThien/SmartHouse/blob/main/public/static/video-demo.png)](https://www.youtube.com/watch?v=etYJXkReOuE)
